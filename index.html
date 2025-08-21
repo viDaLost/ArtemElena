@@ -7,13 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --color-bg: #fdf8f3;
-      --color-primary: #4a2c1a;
-      --color-accent: #D4AF37;
-      --color-soft1: #F7F2EC;
-      --color-soft2: #FFF8F0;
+      --color-bg: #f8f5f0;
+      --color-primary: #3a3025; /* тёмное дерево */
+      --color-accent: #6B8E23; /* зелёный оливковый */
+      --color-soft1: #ECE5D8; /* светлое дерево */
+      --color-soft2: #F2F0EB; /* бежево-древесное */
       --color-heart: #D74A64;
-      --gold-glow: rgba(212,175,55,0.5);
       --transition-speed: 0.6s;
     }
 
@@ -45,7 +44,6 @@
       font-size: 3rem;
       color: var(--color-primary);
       margin-bottom: 15px;
-      text-shadow: 1px 1px 8px var(--gold-glow);
     }
 
     header p { font-size: 1.4rem; color: #5a4a3a; }
@@ -55,8 +53,8 @@
       background: linear-gradient(145deg, var(--color-soft1), var(--color-soft2));
       padding: 40px 30px;
       margin: 50px auto;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
-      backdrop-filter: blur(14px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+      backdrop-filter: blur(5px);
       max-width: 800px;
       opacity: 0;
       transform: translateY(30px);
@@ -76,9 +74,9 @@
     }
 
     .timer { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; font-size: 1.8rem; font-weight: 600; color: var(--color-primary); }
-    .timer div { background: var(--color-soft1); padding: 15px 18px; border-radius: 16px; min-width: 80px; box-shadow: 0 6px 20px var(--gold-glow); }
+    .timer div { background: var(--color-soft1); padding: 15px 18px; border-radius: 16px; min-width: 80px; }
 
-    .timer span { display:block; font-size:0.8em; color: #523211; }
+    .timer span { display:block; font-size:0.8em; color: var(--color-primary); }
 
     .calendar .month { font-size: 1.6rem; margin-bottom: 15px; color: var(--color-primary); font-weight: 600; }
     .weekdays, .dates { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
@@ -91,33 +89,28 @@
       cursor: pointer;
     }
 
-    .day:hover { transform: scale(1.1); box-shadow: 0 0 12px var(--gold-glow); }
+    .day:hover { transform: scale(1.1); background: var(--color-accent); color: #fff; }
 
     .day.active {
-      background: var(--color-heart);
+      background: var(--color-accent);
       color: #fff;
       font-weight: bold;
       position: relative;
-      animation: pulseHeart 1.3s infinite;
     }
 
     .day.active::after {
-      content: "❤️";
+      content: "♥";
       font-size: 1.3em;
       position: absolute;
       top: -18px;
-      animation: bounce 1.5s infinite;
     }
 
-    @keyframes pulseHeart { 0%,100%{transform:scale(1);} 50%{transform:scale(1.1);} }
-    @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-5px);} }
-
     .location .address, .dresscode p { font-size: 1.2rem; margin: 12px 0; }
-    .map { margin: 20px auto 0; border: none; width: 100%; height: 280px; border-radius: 14px; box-shadow: 0 8px 25px var(--gold-glow); }
+    .map { margin: 20px auto 0; border: none; width: 100%; height: 280px; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
 
     .colors { display: flex; justify-content: center; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
-    .color { width: 55px; height: 55px; border-radius: 14px; border: 2px solid #ddd; box-shadow: 0 4px 15px var(--gold-glow); transition: transform 0.4s, box-shadow 0.4s; cursor: pointer; }
-    .color:hover { transform: scale(1.1); box-shadow: 0 6px 22px var(--gold-glow); }
+    .color { width: 55px; height: 55px; border-radius: 14px; border: 2px solid #ddd; transition: transform 0.4s; cursor: pointer; }
+    .color:hover { transform: scale(1.1); }
     .color-label { font-size: 0.85rem; margin-top: 5px; color: var(--color-primary); text-align: center; }
 
     footer { text-align: center; padding: 35px; color: var(--color-primary); font-size: 1.1rem; margin-top: 50px; }
@@ -176,25 +169,25 @@
     <h2>Дресс-код</h2>
     <p>Просим вас придерживаться цветовой гаммы:</p>
     <div class="colors">
-      <div><div class="color" style="background-color: #E3DABF;"></div><div class="color-label">#E3DABF</div></div>
-      <div><div class="color" style="background-color: #D7BABD;"></div><div class="color-label">#D7BABD</div></div>
-      <div><div class="color" style="background-color: #C6D3B3;"></div><div class="color-label">#C6D3B3</div></div>
-      <div><div class="color" style="background-color: #523211;"></div><div class="color-label">#523211</div></div>
+      <div><div class="color" style="background-color: #ECE5D8;"></div><div class="color-label">#ECE5D8</div></div>
+      <div><div class="color" style="background-color: #F2F0EB;"></div><div class="color-label">#F2F0EB</div></div>
+      <div><div class="color" style="background-color: #6B8E23;"></div><div class="color-label">#6B8E23</div></div>
+      <div><div class="color" style="background-color: #3a3025;"></div><div class="color-label">#3A3025</div></div>
     </div>
-    <p style="margin-top: 20px; font-style: italic;">Элегантные наряды в теплых природных оттенках</p>
+    <p style="margin-top: 20px; font-style: italic;">Элегантные наряды в древесных и зеленых оттенках</p>
   </section>
 
-  <footer>
+  <footer class="animate-on-scroll">
     С любовью, Артём и Елена
   </footer>
 </div>
 
 <script>
+  // Обратный отсчёт
   const weddingDate = new Date("September 25, 2025 15:00:00").getTime();
   const countdown = setInterval(() => {
     const now = new Date().getTime();
     const diff = weddingDate - now;
-
     if(diff <= 0){
       clearInterval(countdown);
       document.getElementById("days").innerText="00";
@@ -213,7 +206,7 @@
     }
   },1000);
 
-  // Появление блоков при скролле
+  // Анимация появления при скролле
   const scrollElements = document.querySelectorAll('.animate-on-scroll');
   const elementInView = (el, dividend = 1) => {
     const elementTop = el.getBoundingClientRect().top;
@@ -221,7 +214,7 @@
   };
   const displayScrollElement = (el) => { el.classList.add('show'); };
   const handleScrollAnimation = () => {
-    scrollElements.forEach(el => { if(elementInView(el, 1.2)) displayScrollElement(el); });
+    scrollElements.forEach(el => { if(elementInView(el,1.2)) displayScrollElement(el); });
   };
   window.addEventListener('scroll', handleScrollAnimation);
   window.addEventListener('load', handleScrollAnimation);
