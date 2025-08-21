@@ -1,69 +1,60 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свадьба Артёма и Елены</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свадьба Артёма и Елены</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
 </head>
 <body>
-  <!-- Главная -->
-  <section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>Приглашаем вас<br>на свадебную церемонию</h1>
-      <h2>Артём & Елена</h2>
-      <p class="date">25 сентября 2025 года</p>
-    </div>
-  </section>
+    <!-- Главная страница -->
+    <section id="home">
+        <div class="hero">
+            <h1>Приглашаем вас на свадебную церемонию</h1>
+            <h2>Артём и Елена</h2>
+            <p>25 сентября 2025 года</p>
+            <a href="#calendar" class="btn">Далее</a>
+        </div>
+    </section>
 
-  <!-- Календарь -->
-  <section class="calendar">
-    <h2>Сентябрь 2025</h2>
-    <div class="grid">
-      <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
-      <span></span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
-      <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
-      <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
-      <span>22</span><span>23</span><span>24</span>
-      <span class="heart">25 ❤</span>
-      <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>
-    </div>
-  </section>
+    <!-- Календарь -->
+    <section id="calendar">
+        <h2>Календарь</h2>
+        <div class="month">Сентябрь 2025</div>
+        <div class="calendar" id="calendar-grid"></div>
+    </section>
 
-  <!-- Локация -->
-  <section class="location">
-    <h2>Локация</h2>
-    <p>Банкет пройдёт в ресторане <b>«Пятигорский дача»</b></p>
-    <p>Для вашего удобства — карта:</p>
-    <div class="map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2920.132...YOUR_PLACE_ID..."
-              width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-  </section>
+    <!-- Локация -->
+    <section id="location">
+        <h2>Место проведения</h2>
+        <p>Ресторан «Пятигорский дача» — здесь пройдет банкет</p>
+        <div id="map"></div>
+    </section>
 
-  <!-- Дресс-код -->
-  <section class="dresscode">
-    <h2>Дресс-код</h2>
-    <div class="colors">
-      <span style="background:#E3DABF"></span>
-      <span style="background:#D7BABD"></span>
-      <span style="background:#C6D3B3"></span>
-      <span style="background:#523211"></span>
-    </div>
-  </section>
+    <!-- Дресс-код -->
+    <section id="dresscode">
+        <h2>Дресс-код</h2>
+        <div class="colors">
+            <div class="color" style="background:#E3DABF"></div>
+            <div class="color" style="background:#D7BABD"></div>
+            <div class="color" style="background:#C6D3B3"></div>
+            <div class="color" style="background:#523211"></div>
+        </div>
+    </section>
 
-  <!-- Таймер -->
-  <section class="countdown">
-    <h2>До свадьбы осталось:</h2>
-    <div id="timer">
-      <div><span id="days"></span><small>дней</small></div>
-      <div><span id="hours"></span><small>часов</small></div>
-      <div><span id="minutes"></span><small>минут</small></div>
-      <div><span id="seconds"></span><small>секунд</small></div>
-    </div>
-  </section>
+    <!-- Таймер -->
+    <section id="countdown">
+        <h2>До свадьбы осталось</h2>
+        <div id="timer">
+            <div><span id="days">0</span><br>дней</div>
+            <div><span id="hours">0</span><br>часов</div>
+            <div><span id="minutes">0</span><br>минут</div>
+            <div><span id="seconds">0</span><br>секунд</div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
