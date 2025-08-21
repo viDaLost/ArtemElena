@@ -1,94 +1,325 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свадьба Артёма и Елены</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Артём и Елена | Свадьба 25.09.2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #fefaf5;
+      --color-primary: #4a2c1a;
+      --color-accent: #D4AF37;
+      --color-soft1: #F7F2EC;
+      --color-soft2: #FFF8F0;
+      --color-heart: #D74A64;
+      --gold-glow: rgba(212,175,55,0.6);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, var(--color-soft2), var(--color-soft1));
+      color: var(--color-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 20px; position: relative; z-index: 1;}
+
+    header {
+      text-align: center;
+      padding: 100px 20px 60px;
+      position: relative;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: var(--color-primary);
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.12);
+    }
+
+    header p {
+      font-size: 1.5rem;
+      color: #5a4a3a;
+    }
+
+    .heart {
+      color: var(--color-heart);
+      font-size: 1.6em;
+      margin: 0 5px;
+      animation: heartbeat 1.2s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .string-lights {
+      text-align: center;
+      font-size: 32px;
+      margin: 30px 0;
+      user-select: none;
+      color: var(--color-accent);
+      text-shadow: 0 0 6px var(--gold-glow), 0 0 12px var(--gold-glow);
+      animation: flicker 2s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity:1; }
+      20%, 22%, 24%, 55% { opacity:0.4; }
+    }
+
+    section {
+      border-radius: 22px;
+      background: rgba(255,255,255,0.92);
+      padding: 45px 35px;
+      margin: 50px auto;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      backdrop-filter: blur(14px);
+      max-width: 800px;
+      transition: transform 0.5s ease;
+    }
+
+    section:hover { transform: translateY(-4px); }
+
+    .countdown h2, .calendar h2, .location h2, .dresscode h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--color-primary);
+      margin-bottom: 25px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .timer div {
+      background: var(--color-soft1);
+      padding: 15px 20px;
+      border-radius: 16px;
+      min-width: 95px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1), 0 0 10px var(--gold-glow);
+      position: relative;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 6px 18px rgba(0,0,0,0.1), 0 0 8px var(--gold-glow); }
+      100% { box-shadow: 0 6px 22px rgba(0,0,0,0.12), 0 0 14px var(--gold-glow); }
+    }
+
+    .timer span { display:block; font-size:0.8em; color: #523211; }
+
+    .calendar .month { font-size: 1.8rem; margin-bottom: 15px; color: var(--color-primary); font-weight: 600; }
+    .weekdays, .dates { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+    .weekdays { font-weight: 600; margin-bottom: 10px; color: var(--color-primary); }
+
+    .day {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: 500;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .day:hover { transform: scale(1.15); box-shadow: 0 0 12px var(--gold-glow); }
+
+    .day.active {
+      background: var(--color-heart);
+      color: #fff;
+      font-weight: bold;
+      position: relative;
+      animation: pulseHeart 1.3s infinite;
+    }
+
+    .day.active::after {
+      content: "❤️";
+      font-size: 1.4em;
+      position: absolute;
+      top: -20px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes pulseHeart {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .location .address, .dresscode p { font-size: 1.3rem; margin: 15px 0; }
+    .map { margin: 25px auto 0; border: none; width: 100%; height: 330px; border-radius: 15px; box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
+
+    .colors { display: flex; justify-content: center; gap: 18px; margin-top: 20px; }
+    .color { width: 70px; height: 70px; border-radius: 14px; border: 2px solid #ddd; box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+    .color-label { font-size: 0.95rem; margin-top: 6px; color: var(--color-primary); }
+
+    footer { text-align: center; padding: 40px; color: var(--color-primary); font-size: 1.2rem; margin-top: 50px; position: relative; }
+
+    /* Свечки внизу */
+    .candle {
+      position: fixed;
+      bottom: 20px;
+      width: 12px;
+      height: 30px;
+      background: #D4AF37;
+      border-radius: 6px;
+      box-shadow: 0 0 20px #D4AF37;
+      animation: flickerCandle 1.5s infinite alternate;
+    }
+    .candle:nth-child(1){ left: 10%; animation-delay: 0s; }
+    .candle:nth-child(2){ left: 20%; animation-delay: 0.4s; }
+    .candle:nth-child(3){ left: 30%; animation-delay: 0.8s; }
+    .candle:nth-child(4){ left: 40%; animation-delay: 1.2s; }
+    .candle:nth-child(5){ left: 50%; animation-delay: 1.6s; }
+    .candle:nth-child(6){ left: 60%; animation-delay: 0.2s; }
+    .candle:nth-child(7){ left: 70%; animation-delay: 0.5s; }
+    .candle:nth-child(8){ left: 80%; animation-delay: 1s; }
+    .candle:nth-child(9){ left: 90%; animation-delay: 1.3s; }
+
+    @keyframes flickerCandle {
+      0% { transform: scaleY(1); opacity: 0.8; box-shadow: 0 0 15px #D4AF37; }
+      50% { transform: scaleY(1.1); opacity: 1; box-shadow: 0 0 25px #D4AF37; }
+      100% { transform: scaleY(1); opacity: 0.85; box-shadow: 0 0 15px #D4AF37; }
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.8rem; }
+      .timer { font-size: 1.7rem; }
+      .colors { gap: 12px; }
+      .color { width: 55px; height: 55px; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Главная страница -->
-  <section id="home" class="section home-section">
-    <div class="overlay">
-      <h1>Приглашаем вас на свадебную церемонию</h1>
-      <h2>Артём & Елена</h2>
-      <p>25 сентября 2025 года</p>
-      <a href="#calendar" class="btn">Далее</a>
-    </div>
-  </section>
 
-  <!-- Календарь -->
-  <section id="calendar" class="section calendar-section">
-    <h2>Сентябрь 2025</h2>
-    <div class="calendar">
-      <!-- Генерируем дни месяца -->
-      <div class="day" data-day="1">1</div>
-      <div class="day" data-day="2">2</div>
-      <div class="day" data-day="3">3</div>
-      <div class="day" data-day="4">4</div>
-      <div class="day" data-day="5">5</div>
-      <div class="day" data-day="6">6</div>
-      <div class="day" data-day="7">7</div>
-      <div class="day" data-day="8">8</div>
-      <div class="day" data-day="9">9</div>
-      <div class="day" data-day="10">10</div>
-      <div class="day" data-day="11">11</div>
-      <div class="day" data-day="12">12</div>
-      <div class="day" data-day="13">13</div>
-      <div class="day" data-day="14">14</div>
-      <div class="day" data-day="15">15</div>
-      <div class="day" data-day="16">16</div>
-      <div class="day" data-day="17">17</div>
-      <div class="day" data-day="18">18</div>
-      <div class="day" data-day="19">19</div>
-      <div class="day" data-day="20">20</div>
-      <div class="day" data-day="21">21</div>
-      <div class="day" data-day="22">22</div>
-      <div class="day" data-day="23">23</div>
-      <div class="day" data-day="24">24</div>
-      <div class="day heart" data-day="25">25 ❤️</div>
-      <div class="day" data-day="26">26</div>
-      <div class="day" data-day="27">27</div>
-      <div class="day" data-day="28">28</div>
-      <div class="day" data-day="29">29</div>
-      <div class="day" data-day="30">30</div>
-    </div>
-  </section>
+  <div class="string-lights">
+    &#127775; &#127775; &#127775; &#127775; &#127775; &#127775; &#127775;
+  </div>
 
-  <!-- Локация -->
-  <section id="location" class="section location-section">
-    <h2>Локация</h2>
-    <p>Ресторан «Пятигорский дача»</p>
-    <p>Здесь пройдет банкет</p>
-    <div class="map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2324.52922304505!2d43.912804!3d44.042732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4040b17e3b41abf7%3A0x0!2z0JrQsNC_0YHQvtC70LXQutCw0YHRgtC-0LLRgdC60LDRjyDQsiDQvtCx0YHRgtC-0LLRgdC60LjQuSDQsiDQvtCx0YHRgtC-0LLRgdC60LjQuSDQsiDQvtCx0YHRgtC-0LLRgdC60LjQuA!5e0!3m2!1sru!2sru!4v1692610000000!5m2!1sru!2sru" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-  </section>
+  <div class="container">
+    <header>
+      <h1>Артём <span class="heart">❤️</span> Елена</h1>
+      <p>Приглашаем вас на нашу свадебную церемонию</p>
+      <p><strong>25 сентября 2025 года</strong></p>
+    </header>
 
-  <!-- Дресс-код -->
-  <section id="dresscode" class="section dresscode-section">
-    <h2>Дресс-код</h2>
-    <div class="colors">
-      <div class="color" style="background-color: #E3DABF;"></div>
-      <div class="color" style="background-color: #D7BABD;"></div>
-      <div class="color" style="background-color: #C6D3B3;"></div>
-      <div class="color" style="background-color: #523211;"></div>
-    </div>
-    <p>Выбирайте наряд в наших цветах!</p>
-  </section>
+    <section class="countdown">
+      <h2>Осталось до свадьбы</h2>
+      <div class="timer">
+        <div><span id="days">00</span><span>Дней</span></div>
+        <div><span id="hours">00</span><span>Часов</span></div>
+        <div><span id="minutes">00</span><span>Минут</span></div>
+        <div><span id="seconds">00</span><span>Секунд</span></div>
+      </div>
+    </section>
 
-  <!-- Таймер обратного отсчёта -->
-  <section id="timer" class="section timer-section">
-    <h2>До свадьбы осталось:</h2>
-    <div class="countdown">
-      <div><span id="days">0</span><small>Дней</small></div>
-      <div><span id="hours">0</span><small>Часов</small></div>
-      <div><span id="minutes">0</span><small>Минут</small></div>
-      <div><span id="seconds">0</span><small>Секунд</small></div>
-    </div>
-  </section>
+    <section class="calendar">
+      <h2>Календарь</h2>
+      <div class="month">Сентябрь 2025</div>
+      <div class="weekdays">
+        <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
+      </div>
+      <div class="dates">
+        <div></div><div></div><div></div><div></div><div></div>
+        <div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
+        <div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div>
+        <div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div>
+        <div class="day">22</div><div class="day">23</div><div class="day">24</div>
+        <div class="day active">25</div>
+        <div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div>
+      </div>
+    </section>
 
-  <script src="script.js"></script>
+    <section class="location">
+      <h2>Место проведения</h2>
+      <p>Банкет состоится в уютном ресторане с природной атмосферой</p>
+      <div class="address">
+        <strong>Ресторан "Пятигорская дача"</strong><br>
+        г. Пятигорск, ул. Кирова, 123
+      </div>
+      <iframe class="map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2977.384278808828!2d43.04959741537822!3d44.04381777910798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f17e0a8c7b3d2d%3A0x123456789abcdef!2sPyatigorsk!5e0!3m2!1sru!2sru!4v1700000000000!5m2!1sru!2sru"
+        allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <section class="dresscode">
+      <h2>Дресс-код</h2>
+      <p>Просим вас придерживаться цветовой гаммы:</p>
+      <div class="colors">
+        <div>
+          <div class="color color1" style="background-color: #E3DABF;"></div>
+          <div class="color-label">#E3DABF</div>
+        </div>
+        <div>
+          <div class="color color2" style="background-color: #D7BABD;"></div>
+          <div class="color-label">#D7BABD</div>
+        </div>
+        <div>
+          <div class="color color3" style="background-color: #C6D3B3;"></div>
+          <div class="color-label">#C6D3B3</div>
+        </div>
+        <div>
+          <div class="color color4" style="background-color: #523211;"></div>
+          <div class="color-label">#523211</div>
+        </div>
+      </div>
+      <p style="margin-top: 20px; font-style: italic;">Элегантные наряды в теплых природных оттенках</p>
+    </section>
+
+    <footer>
+      С любовью, Артём и Елена ❤️
+    </footer>
+  </div>
+
+  <!-- Свечки -->
+  <div class="candle"></div><div class="candle"></div><div class="candle"></div>
+  <div class="candle"></div><div class="candle"></div><div class="candle"></div>
+  <div class="candle"></div><div class="candle"></div><div class="candle"></div>
+
+  <script>
+    const weddingDate = new Date("September 25, 2025 15:00:00").getTime();
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
+      if(diff<=0){
+        clearInterval(countdown);
+        document.getElementById("days").innerText="00";
+        document.getElementById("hours").innerText="00";
+        document.getElementById("minutes").innerText="00";
+        document.getElementById("seconds").innerText="00";
+      } else {
+        const days=Math.floor(diff/(1000*60*60*24));
+        const hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+        const minutes=Math.floor((diff%(1000*60*60))/(1000*60));
+        const seconds=Math.floor((diff%(1000*60))/1000);
+        document.getElementById("days").innerText=days.toString().padStart(2,'0');
+        document.getElementById("hours").innerText=hours.toString().padStart(2,'0');
+        document.getElementById("minutes").innerText=minutes.toString().padStart(2,'0');
+        document.getElementById("seconds").innerText=seconds.toString().padStart(2,'0');
+      }
+    },1000);
+  </script>
+
 </body>
 </html>
