@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Артём & Елена — 25 сентября 2025</title>
+
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Гирлянда -->
+  <div class="string-lights" aria-hidden="true">
+    <svg viewBox="0 0 1200 180" preserveAspectRatio="none">
+      <path d="M0,40 C300,140 900,-60 1200,60" fill="none" stroke="rgba(82,50,17,.35)" stroke-width="3"/>
+      <g class="bulbs">
+        <circle cx="60" cy="65" r="10"/>
+        <circle cx="150" cy="95" r="10"/>
+        <circle cx="240" cy="115" r="10"/>
+        <circle cx="330" cy="120" r="10"/>
+        <circle cx="420" cy="105" r="10"/>
+        <circle cx="510" cy="80" r="10"/>
+        <circle cx="600" cy="60" r="10"/>
+        <circle cx="690" cy="55" r="10"/>
+        <circle cx="780" cy="70" r="10"/>
+        <circle cx="870" cy="95" r="10"/>
+        <circle cx="960" cy="120" r="10"/>
+        <circle cx="1050" cy="135" r="10"/>
+        <circle cx="1140" cy="140" r="10"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__inner container">
+      <p class="overline">Приглашаем вас на свадебную церемонию</p>
+      <h1 class="hero__title">
+        Артём <span class="amp">&</span> Елена
+      </h1>
+      <p class="hero__date">25 сентября 2025 года</p>
+      <a href="#details" class="btn btn--primary">Подробнее</a>
+    </div>
+  </header>
+
+  <main id="details">
+    <!-- Обратный отсчёт -->
+    <section class="section section--countdown">
+      <div class="container">
+        <h2 class="section__title">До свадьбы осталось</h2>
+        <div id="countdown" class="countdown">
+          <div class="countdown__item">
+            <div class="countdown__value" id="cd-days">--</div>
+            <div class="countdown__label">дней</div>
+          </div>
+          <div class="countdown__item">
+            <div class="countdown__value" id="cd-hours">--</div>
+            <div class="countdown__label">часов</div>
+          </div>
+          <div class="countdown__item">
+            <div class="countdown__value" id="cd-mins">--</div>
+            <div class="countdown__label">минут</div>
+          </div>
+          <div class="countdown__item">
+            <div class="countdown__value" id="cd-secs">--</div>
+            <div class="countdown__label">секунд</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Календарь -->
+    <section class="section section--calendar">
+      <div class="container">
+        <h2 class="section__title">Сентябрь 2025</h2>
+        <div class="calendar">
+          <div class="calendar__header">
+            <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
+          </div>
+          <div id="calendar-grid" class="calendar__grid">
+            <!-- генерируется script.js -->
+          </div>
+          <p class="calendar__note">
+            <span class="heart">❤</span> — день церемонии: <strong>25 сентября</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Локация -->
+    <section class="section section--location">
+      <div class="container">
+        <h2 class="section__title">Место проведения</h2>
+        <div class="location">
+          <div class="location__text">
+            <h3 class="location__name">Ресторан «Пятигорский дача»</h3>
+            <p class="muted">
+              Свадебная церемония и банкет пройдут именно там. Ниже карта для вашего удобства:
+            </p>
+          </div>
+          <div class="location__map">
+            <iframe
+              title="Карта — Ресторан «Пятигорский дача»"
+              loading="lazy"
+              src="https://maps.google.com/maps?q=%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%20%D0%9F%D1%8F%D1%82%D0%B8%D0%B3%D0%BE%D1%80%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B4%D0%B0%D1%87%D0%B0&output=embed"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Дресс-код -->
+    <section class="section section--dresscode">
+      <div class="container">
+        <h2 class="section__title">Дресс-код</h2>
+        <p class="muted">Пожалуйста, выбирайте наряды в этих оттенках:</p>
+        <div class="swatches">
+          <div class="swatch">
+            <div class="swatch__color" style="--sw:#E3DABF"></div>
+            <div class="swatch__label">#E3DABF</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="--sw:#D7BABD"></div>
+            <div class="swatch__label">#D7BABD</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="--sw:#C6D3B3"></div>
+            <div class="swatch__label">#C6D3B3</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="--sw:#523211"></div>
+            <div class="swatch__label">#523211</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>Артём & Елена • 25.09.2025</p>
+      <a href="#details" class="btn btn--ghost">Наверх ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
